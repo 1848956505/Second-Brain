@@ -1,0 +1,2 @@
+"""AI daily report package."""
+
