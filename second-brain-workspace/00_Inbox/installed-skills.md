@@ -1,7 +1,7 @@
 # 安装的 Skills 汇总
 
 > 自动维护：每次安装新 Skill 后更新并推送到仓库。
-> 最后更新：2026-05-16（第二次更新）
+> 最后更新：2026-05-16（移除 tushare-finance、eastmoney-financial-data）
 
 ---
 
@@ -94,48 +94,7 @@ Skill 会：
 
 ---
 
-## 4. tushare-finance
-
-| 项目 | 内容 |
-|------|------|
-| **名称** | Tushare Finance（A股金融数据） |
-| **概述** | 通过 Tushare Pro API 获取中国金融市场数据，支持 220+ 个数据接口。涵盖 A股/港股/美股/基金/期货/债券行情、财务报表、宏观经济指标（GDP/CPI）、分红送转、龙虎榜等。**做 A 股量化回测最全的数据源。** |
-| **GitHub 地址** | https://github.com/LeoYeAI/openclaw-master-skills/tree/main/skills/tushare-finance |
-| **ClawHub 页面** | https://clawhub.ai/tushare-finance |
-| **安装位置** | `workspace/skills/tushare-finance/` |
-
-### 使用方法
-
-**前置准备：**
-1. 访问 https://tushare.pro 注册并获取 Token
-2. 配置环境变量：`export TUSHARE_TOKEN="your_token"`
-3. 安装依赖：`pip install tushare pandas`
-
-**常用接口：**
-
-```python
-import tushare as ts
-pro = ts.pro_api()
-
-# 股票列表
-pro.stock_basic()
-
-# 日线行情
-df = pro.daily(ts_code='000001.SZ', start_date='20260101', end_date='20260516')
-
-# 财务指标（ROE等）
-pro.fina_indicator(ts_code='600519.SH')
-
-# 指数行情
-pro.index_daily(ts_code='000001.SH')
-
-# 龙虎榜
-pro.longhubang(trade_date='20260515')
-```
-
----
-
-## 5. ths-advanced-analysis
+## 4. ths-advanced-analysis
 
 | 项目 | 内容 |
 |------|------|
@@ -168,20 +127,3 @@ pro.longhubang(trade_date='20260515')
 
 ---
 
-## 6. eastmoney-financial-data
-
-| 项目 | 内容 |
-|------|------|
-| **名称** | Eastmoney Financial Data（东方财富金融数据） |
-| **概述** | 东方财富金融/基金数据查询，支持股票/基金/债券/资金流向查询，**无需注册和Token。** |
-| **GitHub 地址** | https://github.com/LeoYeAI/openclaw-master-skills/tree/main/skills/eastmoney-financial-data-1-0-2 |
-| **ClawHub 页面** | https://clawhub.ai/eastmoney-financial-data-1-0-2 |
-| **安装位置** | `workspace/skills/eastmoney-financial-data-1-0-2/` |
-
-### 使用方法
-
-无需额外配置，直接调用即可查询东方财富的金融数据。
-
-> "查一下 600519 的行情"
-> "看看今天北向资金流向"
-> "查询半导体板块资金情况"
