@@ -1,7 +1,7 @@
 # 安装的 Skills 汇总
 
 > 自动维护：每次安装新 Skill 后更新并推送到仓库。
-> 最后更新：2026-05-16（移除 tushare-finance、eastmoney-financial-data）
+> 最后更新：2026-05-18
 
 ---
 
@@ -126,4 +126,39 @@ Skill 会：
 > "问财：今日主力资金流入的概念板块"
 
 ---
+
+## 5. image-to-ppt-pro
+
+| 项目 | 内容 |
+|------|------|
+| **名称** | Image to PPT Pro（图片复刻为可编辑PPT） |
+| **概述** | 将任意图片或幻灯片截图复刻成完全可编辑的 PPTX 文件，像素级还原布局、颜色、文字与图形元素。使用原生形状（非截图粘贴）重建，100% 可在 PowerPoint 中编辑。支持流程图、架构图、仪表盘等复杂图形的数学近似还原。 |
+| **GitHub 地址** | https://github.com/openclaw/skills/tree/main/skills/dami2010/image-to-ppt-pro |
+| **ClawHub 页面** | https://clawhub.ai/image-to-ppt-pro |
+| **安装位置** | `workspace/skills/image-to-ppt-pro/` |
+
+### 使用方法
+
+**安装依赖：**
+```bash
+npm install -g pptxgenjs
+pip install Pillow numpy pytesseract
+```
+
+**使用流程：**
+1. 上传图片给 AI，直接说"把这张图变成可编辑的PPT"
+2. AI 会自动分析图片类型、提取颜色/文字/形状
+3. 生成精准对应的 PPTX 文件（原生形状+矢量文字，非截图）
+
+**分两条路径：**
+- **Strategy A**：纯代码复刻（扁平几何图形 → 流程图/架构图/表格）
+- **Strategy B**：数学近似（含3D/渐变/曲线的复杂图形 → 几何叠加+透明度模拟）
+
+**对话触发示例：**
+> "把这张截图还原成可编辑的PPT"
+> "帮我复刻这张幻灯片"
+> "把这个流程图变成PPT"
+> "这张设计稿做成可编辑的PPT"
+
+每次生成后 AI 会提供预览图，最多 3 轮纠错，确保还原质量。
 
